@@ -3,6 +3,7 @@
   "short_name": "VR Shop",
   "description": "Discover premium VR headsets from Apple, PlayStation, and Oculus",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#33c6dd",
@@ -16,5 +17,8 @@
     }
   ],
   "categories": ["shopping", "technology"],
-  "lang": "en"
+  "lang": "en",
+  "dir": "ltr",
+  "screenshots": [],
+  "prefer_related_applications": false
 }
