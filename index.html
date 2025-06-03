@@ -9,6 +9,14 @@
       content="VR Headsets - Discover our premium line of virtual reality headsets including Apple, PlayStation, and Oculus VR headsets with best prices and deals."
     />
     <meta name="keywords" content="VR headsets, virtual reality, Apple headset, PlayStation VR, Oculus, tech shop" />
+    <meta name="author" content="Tech Shop" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://www.googletagmanager.com https://www.freeprivacypolicy.com;"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <link rel="canonical" href="https://front-5th-chapter4-2-basic-dusky.vercel.app" />
     <title>Home - Tech Shop</title>
 
     <!-- PWA Support -->
@@ -83,19 +91,19 @@
       section.hero {
         position: relative;
         overflow: hidden;
-        min-height: 60vh;
-        max-height: 70vh;
+        height: 50vh;
+        max-height: 400px;
       }
       section.hero img {
         width: 100%;
-        height: auto;
+        height: 100%;
         filter: brightness(50%);
         display: none;
         object-fit: cover;
         transform: translateZ(0);
       }
       section.hero img.desktop {
-        display: initial;
+        display: block;
       }
       .hero-content {
         position: absolute;
@@ -111,7 +119,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: auto;
       }
       .hero-content h1 {
         max-width: 495px;
@@ -134,32 +141,27 @@
       .hero-content button {
         height: 50px;
         width: 220px;
-        max-width: 100%;
         border-radius: 92px;
         background: #33c6dd;
         color: #fff;
         font-size: 16px;
         font-weight: 700;
         letter-spacing: 0.4px;
-        line-height: 24px;
         text-align: center;
         border: none;
         text-transform: uppercase;
         cursor: pointer;
-        transition: transform 0.2s ease;
-      }
-      .hero-content button:hover {
-        transform: translateY(-2px);
       }
       @media (max-width: 768px) {
         section.hero {
-          max-height: 60vh;
+          height: 40vh;
+          max-height: 300px;
         }
         section.hero img.desktop {
           display: none;
         }
         section.hero img.tablet {
-          display: initial;
+          display: block;
         }
         .hero-content h1 {
           font-size: 36px;
@@ -176,13 +178,14 @@
       }
       @media (max-width: 480px) {
         section.hero {
-          max-height: 50vh;
+          height: 35vh;
+          max-height: 250px;
         }
         section.hero img.tablet {
           display: none;
         }
         section.hero img.mobile {
-          display: initial;
+          display: block;
         }
         .hero-content h1 {
           font-size: 28px;
@@ -199,14 +202,31 @@
       }
     </style>
 
-    <!-- Preconnect to external resources -->
+    <!-- Optimized resource preloading -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
+      as="style"
+      crossorigin
+    />
+    <link rel="preload" href="/css/styles.min.css" as="style" crossorigin />
+    <link rel="stylesheet" href="/css/styles.min.css" />
+
+    <!-- Preload hero images with media queries -->
+    <link rel="preload" as="image" href="images/Hero_Desktop.webp" media="(min-width: 1024px)" />
+    <link rel="preload" as="image" href="images/Hero_Tablet.webp" media="(min-width: 768px) and (max-width: 1023px)" />
+    <link rel="preload" as="image" href="images/Hero_Mobile.webp" media="(max-width: 767px)" />
+
+    <!-- DNS prefetch and preconnect optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//fakestoreapi.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fakestoreapi.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://www.freeprivacypolicy.com" />
 
-    <!-- Preload critical resources -->
+    <!-- Preload critical resources with highest priority -->
     <link rel="preload" href="images/Hero_Desktop.webp" as="image" fetchpriority="high" />
     <link
       rel="preload"
@@ -215,20 +235,19 @@
       type="font/woff2"
       crossorigin
     />
+    <link rel="preload" as="style" href="/css/styles.min.css" />
 
-    <!-- Optimized font loading -->
+    <!-- Optimized font loading with font-display swap -->
     <link
-      rel="preload"
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript
       ><link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet"
     /></noscript>
 
-    <link rel="preload" as="style" href="/css/styles.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="/css/styles.min.css" /></noscript>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -277,49 +296,48 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header>
+    <header role="banner">
       <div class="container">
         <section class="logo">
-          <a href="index.html">
+          <a href="index.html" aria-label="Home">
             <strong>VR</strong>
-            <span class="blue-dot"></span>
-            <span class="blue-dot"></span>
+            <span class="blue-dot" aria-hidden="true"></span>
+            <span class="blue-dot" aria-hidden="true"></span>
             <span>Headsets</span>
           </a>
         </section>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
           <ul>
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
-            <li class="menu-icon"><img src="images/menu_icon.png" alt="Menu icon" width="24" height="24" /></li>
+            <li class="menu-icon">
+              <button type="button" aria-label="Open menu" tabindex="0">
+                <img
+                  src="images/menu_icon.png"
+                  alt=""
+                  width="24"
+                  height="24"
+                  style="aspect-ratio: 1.2/1; object-fit: contain"
+                />
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" aria-label="Hero section">
       <picture>
-        <source
-          media="(max-width: 480px)"
-          srcset="images/Hero_Mobile.webp"
-          type="image/webp"
-          width="480"
-          height="320"
-        />
-        <source
-          media="(max-width: 768px)"
-          srcset="images/Hero_Tablet.webp"
-          type="image/webp"
-          width="768"
-          height="432"
-        />
+        <source srcset="images/Hero_Mobile.webp" media="(max-width: 767px)" type="image/webp" />
+        <source srcset="images/Hero_Tablet.webp" media="(max-width: 1023px)" type="image/webp" />
+        <source srcset="images/Hero_Desktop.webp" media="(min-width: 1024px)" type="image/webp" />
         <img
-          class="desktop"
           src="images/Hero_Desktop.webp"
-          alt="VR Headsets Hero Image - Discover our premium line of virtual reality headsets"
+          alt="VR Headset"
           width="1200"
           height="675"
+          style="aspect-ratio: 16/9; object-fit: cover"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -337,7 +355,7 @@
 
     <section class="country-bar hidden"></section>
 
-    <section class="best-sellers" id="best-sellers-section">
+    <section class="best-sellers" id="best-sellers-section" aria-label="Best selling products">
       <h2>Best Sellers</h2>
       <hr />
       <div class="product-slider">
@@ -350,10 +368,11 @@
                 width="300"
                 height="200"
                 loading="lazy"
+                style="aspect-ratio: 3/2; object-fit: contain"
               />
             </div>
             <div class="product-info">
-              <h4 class="categories">Headsets, Apple</h4>
+              <h5 class="categories">Headsets, Apple</h5>
               <h3 class="title">Apple Headset</h3>
               <div class="price">
                 <span>US$ 450.00</span>
@@ -370,10 +389,11 @@
                 width="300"
                 height="200"
                 loading="lazy"
+                style="aspect-ratio: 3/2; object-fit: contain"
               />
             </div>
             <div class="product-info">
-              <h4 class="categories">Headsets, PS</h4>
+              <h5 class="categories">Headsets, PS</h5>
               <h3 class="title">Playstation Headset</h3>
               <div class="price">
                 <span>US$ 399.99</span>
@@ -390,10 +410,11 @@
                 width="300"
                 height="200"
                 loading="lazy"
+                style="aspect-ratio: 3/2; object-fit: contain"
               />
             </div>
             <div class="product-info">
-              <h4 class="categories">Headsets, Oculus</h4>
+              <h5 class="categories">Headsets, Oculus</h5>
               <h3 class="title">Oculus Headset</h3>
               <div class="price">
                 <span class="discounted-price">US$ 349.99</span>
@@ -414,16 +435,17 @@
       </div>
     </section>
 
-    <section class="newsletter" id="newsletter-section">
+    <section class="newsletter" id="newsletter-section" aria-label="Newsletter subscription">
       <h2>Newsletter Signup</h2>
       <p>Subscribe now and don't miss a single deal!</p>
-      <form>
-        <input type="email" name="email" placeholder="Your email..." aria-label="Email address" />
+      <form aria-label="Newsletter subscription form">
+        <label for="email">Your email address</label>
+        <input type="email" id="email" name="email" placeholder="Your email..." aria-label="Email address" />
         <button type="submit">Subscribe</button>
       </form>
     </section>
 
-    <footer>
+    <footer role="contentinfo">
       <div class="bottom-nav">
         <div class="container">
           <ul>
@@ -484,7 +506,25 @@
       }
     </script>
 
-    <script type="text/javascript" src="/js/main.min.js" defer></script>
-    <script type="text/javascript" src="/js/products.min.js" defer></script>
+    <!-- Load main.js only when DOM is ready -->
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", () => {
+        import("/js/main.min.js");
+      });
+    </script>
+
+    <!-- Load products.js only when scrolled to products section -->
+    <script type="module">
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            import("/js/products.min.js");
+            observer.disconnect();
+          }
+        });
+      });
+
+      observer.observe(document.querySelector("#all-products"));
+    </script>
   </body>
 </html>
