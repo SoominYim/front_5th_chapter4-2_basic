@@ -10,6 +10,14 @@
     />
     <meta name="keywords" content="VR headsets, virtual reality, Apple headset, PlayStation VR, Oculus, tech shop" />
     <title>Home - Tech Shop</title>
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fakestoreapi.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.freeprivacypolicy.com" />
+
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet" />
     <link rel="preload" as="style" href="/css/styles.min.css" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/styles.min.css" /></noscript>
@@ -84,14 +92,14 @@
 
     <section class="hero">
       <picture>
-        <source media="(max-width: 480px)" srcset="images/Hero_Mobile.jpg" width="480" height="300" />
-        <source media="(max-width: 768px)" srcset="images/Hero_Tablet.jpg" width="768" height="400" />
+        <source media="(max-width: 480px)" srcset="images/Hero_Mobile.jpg" width="480" height="400" />
+        <source media="(max-width: 768px)" srcset="images/Hero_Tablet.jpg" width="768" height="512" />
         <img
           class="desktop"
           src="images/Hero_Desktop.jpg"
           alt="VR Headsets Hero Image"
           width="1200"
-          height="600"
+          height="800"
           loading="eager"
         />
       </picture>
@@ -123,11 +131,11 @@
               />
             </div>
             <div class="product-info">
-              <h5 class="categories">Headsets, Apple</h5>
+              <h4 class="categories">Headsets, Apple</h4>
               <h3 class="title">Apple Headset</h3>
-              <h4 class="price">
+              <div class="price">
                 <span>US$ 450.00</span>
-              </h4>
+              </div>
               <button>Add to bag</button>
             </div>
           </div>
@@ -143,11 +151,11 @@
               />
             </div>
             <div class="product-info">
-              <h5 class="categories">Headsets, PS</h5>
+              <h4 class="categories">Headsets, PS</h4>
               <h3 class="title">Playstation Headset</h3>
-              <h4 class="price">
+              <div class="price">
                 <span>US$ 399.99</span>
-              </h4>
+              </div>
               <button>Add to bag</button>
             </div>
           </div>
@@ -163,12 +171,12 @@
               />
             </div>
             <div class="product-info">
-              <h5 class="categories">Headsets, Oculus</h5>
+              <h4 class="categories">Headsets, Oculus</h4>
               <h3 class="title">Oculus Headset</h3>
-              <h4 class="price">
+              <div class="price">
                 <span class="discounted-price">US$ 349.99</span>
                 <span class="original-price">US$ 419.99</span>
-              </h4>
+              </div>
               <button>Add to bag</button>
             </div>
           </div>

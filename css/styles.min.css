@@ -219,10 +219,11 @@ section.best-sellers .product-slider .product .product-info {
   padding: 24px;
 }
 section.best-sellers .product-slider .product .product-info .categories {
-  color: #888;
+  color: #555;
   font-size: 14px;
   margin: 0 0 8px 0;
   text-transform: uppercase;
+  font-weight: 600;
 }
 section.best-sellers .product-slider .product .product-info .title {
   color: #000;
@@ -242,7 +243,7 @@ section.best-sellers .product-slider .product .product-info .price .discounted-p
   color: #33c6dd;
 }
 section.best-sellers .product-slider .product .product-info .price .original-price {
-  color: #888;
+  color: #666;
   text-decoration: line-through;
   margin-left: 8px;
   font-size: 16px;
@@ -277,7 +278,7 @@ section.newsletter h3 {
 }
 section.newsletter p {
   font-size: 16px;
-  color: #666;
+  color: #555;
   margin: 0 0 32px 0;
 }
 section.newsletter form {
@@ -342,7 +343,7 @@ footer .bottom-nav ul li.list-title {
 }
 footer .copyright-text {
   background-color: #222;
-  color: #888;
+  color: #aaa;
   text-align: center;
   padding: 24px 0;
   font-size: 14px;
