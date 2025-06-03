@@ -17,7 +17,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="VR Shop" />
-    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/images/menu_icon.png" />
 
     <!-- Critical CSS for above-the-fold content -->
     <style>
@@ -83,20 +83,17 @@
       section.hero {
         position: relative;
         overflow: hidden;
-        height: 70vh;
-        min-height: 500px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 60vh;
       }
-      .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
+      section.hero img {
         width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle fill="%23764ba2" cx="300" cy="150" r="100" opacity="0.7"/><circle fill="%2333c6dd" cx="900" cy="400" r="80" opacity="0.5"/></svg>');
-        background-size: cover;
-        background-position: center;
+        height: auto;
+        filter: brightness(50%);
+        display: none;
+        object-fit: cover;
+      }
+      section.hero img.desktop {
+        display: initial;
       }
       .hero-content {
         position: absolute;
@@ -151,9 +148,11 @@
         cursor: pointer;
       }
       @media (max-width: 768px) {
-        section.hero {
-          height: 60vh;
-          min-height: 400px;
+        section.hero img.desktop {
+          display: none;
+        }
+        section.hero img.tablet {
+          display: initial;
         }
         .hero-content h1 {
           font-size: 36px;
@@ -169,6 +168,12 @@
         }
       }
       @media (max-width: 480px) {
+        section.hero img.tablet {
+          display: none;
+        }
+        section.hero img.mobile {
+          display: initial;
+        }
         .hero-content h1 {
           font-size: 28px;
           line-height: 36px;
@@ -191,7 +196,8 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.freeprivacypolicy.com" />
 
-    <!-- Preload critical font -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/Hero_Desktop.jpg" as="image" fetchpriority="high" />
     <link
       rel="preload"
       href="https://fonts.gstatic.com/s/heebo/v21/NGSpv5_NC0k9P_v6ZUCbLRAHxK1EiS2cUxLB.woff2"
@@ -283,8 +289,20 @@
     </header>
 
     <section class="hero">
-      <!-- Hero background will be handled by CSS -->
-      <div class="hero-background"></div>
+      <picture>
+        <source media="(max-width: 480px)" srcset="images/Hero_Mobile.jpg" width="480" height="320" />
+        <source media="(max-width: 768px)" srcset="images/Hero_Tablet.jpg" width="768" height="432" />
+        <img
+          class="desktop"
+          src="images/Hero_Desktop.jpg"
+          alt="VR Headsets Hero Image - Discover our premium line of virtual reality headsets"
+          width="1200"
+          height="675"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
