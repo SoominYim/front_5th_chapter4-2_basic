@@ -1,4 +1,4 @@
-const CACHE_NAME = "vr-shop-v2";
+const CACHE_NAME = "vr-shop-v3";
 const urlsToCache = [
   "/",
   "/manifest.json",
@@ -6,6 +6,9 @@ const urlsToCache = [
   "/css/styles.min.css",
   "/js/main.min.js",
   "/js/products.min.js",
+  "/images/Hero_Desktop.webp",
+  "/images/Hero_Tablet.webp",
+  "/images/Hero_Mobile.webp",
   "/images/vr1.jpg",
   "/images/vr2.jpg",
   "/images/vr3.jpg",

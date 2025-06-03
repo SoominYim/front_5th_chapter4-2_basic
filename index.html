@@ -84,6 +84,7 @@
         position: relative;
         overflow: hidden;
         min-height: 60vh;
+        max-height: 70vh;
       }
       section.hero img {
         width: 100%;
@@ -91,6 +92,9 @@
         filter: brightness(50%);
         display: none;
         object-fit: cover;
+        image-rendering: optimizeSpeed;
+        transform: translateZ(0);
+        will-change: transform;
       }
       section.hero img.desktop {
         display: initial;
@@ -120,6 +124,7 @@
         margin-bottom: 16px;
         margin-top: 0;
         font-weight: 400;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
       .hero-content p {
         max-width: 518px;
@@ -130,6 +135,7 @@
         line-height: 28px;
         margin-bottom: 21px;
         margin-top: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
       .hero-content button {
         height: 50px;
@@ -146,8 +152,15 @@
         border: none;
         text-transform: uppercase;
         cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .hero-content button:hover {
+        transform: translateY(-2px);
       }
       @media (max-width: 768px) {
+        section.hero {
+          max-height: 60vh;
+        }
         section.hero img.desktop {
           display: none;
         }
@@ -168,6 +181,9 @@
         }
       }
       @media (max-width: 480px) {
+        section.hero {
+          max-height: 50vh;
+        }
         section.hero img.tablet {
           display: none;
         }
@@ -197,7 +213,7 @@
     <link rel="preconnect" href="https://www.freeprivacypolicy.com" />
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="images/Hero_Desktop.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="images/Hero_Desktop.webp" as="image" fetchpriority="high" />
     <link
       rel="preload"
       href="https://fonts.gstatic.com/s/heebo/v21/NGSpv5_NC0k9P_v6ZUCbLRAHxK1EiS2cUxLB.woff2"
@@ -290,8 +306,23 @@
 
     <section class="hero">
       <picture>
-        <source media="(max-width: 480px)" srcset="images/Hero_Mobile.jpg" width="480" height="320" />
-        <source media="(max-width: 768px)" srcset="images/Hero_Tablet.jpg" width="768" height="432" />
+        <source
+          media="(max-width: 480px)"
+          srcset="images/Hero_Mobile.webp"
+          type="image/webp"
+          width="480"
+          height="320"
+        />
+        <source media="(max-width: 480px)" srcset="images/Hero_Mobile.jpg" type="image/jpeg" width="480" height="320" />
+        <source
+          media="(max-width: 768px)"
+          srcset="images/Hero_Tablet.webp"
+          type="image/webp"
+          width="768"
+          height="432"
+        />
+        <source media="(max-width: 768px)" srcset="images/Hero_Tablet.jpg" type="image/jpeg" width="768" height="432" />
+        <source srcset="images/Hero_Desktop.webp" type="image/webp" width="1200" height="675" />
         <img
           class="desktop"
           src="images/Hero_Desktop.jpg"
