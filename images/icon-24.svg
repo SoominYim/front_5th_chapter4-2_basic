@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- VR body -->
+  <rect x="4" y="10" width="16" height="8" rx="4" fill="#33c6dd"/>
+  
+  <!-- Lenses -->
+  <circle cx="9" cy="14" r="2.5" fill="#fff"/>
+  <circle cx="15" cy="14" r="2.5" fill="#fff"/>
+  <circle cx="9" cy="14" r="1" fill="#666"/>
+  <circle cx="15" cy="14" r="1" fill="#666"/>
+  
+  <!-- Straps -->
+  <path d="M 4 12 Q 1 14 4 16" fill="none" stroke="#666" stroke-width="1.5"/>
+  <path d="M 20 12 Q 23 14 20 16" fill="none" stroke="#666" stroke-width="1.5"/>
+</svg> 
