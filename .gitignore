@@ -1,2 +1,11 @@
+node_modules/
 .DS_Store
+*.log
+.env
+.vercel
+dist/
+build/
+.cache/
+.lighthouseci/
+package-lock.json
 .idea

@@ -9,7 +9,7 @@ on:
       url:
         description: "URL to run Lighthouse on"
         required: false
-        default: "http://localhost:8080"
+        default: "https://front-5th-chapter4-2-basic-dusky.vercel.app"
 
 permissions:
   issues: write
@@ -30,16 +30,12 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g @lhci/cli@0.14.x
-          npm install -g http-server
-
-      - name: Start local server
-        run: http-server . -p 8080 &
 
       - name: Run Lighthouse CI
         id: lighthouse
         continue-on-error: true
         run: |
-          URL="${{ github.event.inputs.url || 'http://localhost:8080' }}"
+          URL="${{ github.event.inputs.url || 'https://front-5th-chapter4-2-basic-dusky.vercel.app' }}"
           lhci autorun --collect.url=$URL
 
       - name: Create GitHub Issue with Results
