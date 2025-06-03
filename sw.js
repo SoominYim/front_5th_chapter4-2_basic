@@ -1,19 +1,15 @@
-const CACHE_NAME = "vr-shop-v4";
+const CACHE_NAME = "vr-shop-v5";
 const urlsToCache = [
   "/",
   "/manifest.json",
-  "/images/icon-192.svg",
-  "/images/icon-32.svg",
-  "/images/icon-24.svg",
+  "/images/icon-192.png",
+  "/images/icon-512.png",
   "/css/styles.min.css",
   "/js/main.min.js",
   "/js/products.min.js",
   "/images/Hero_Desktop.webp",
   "/images/Hero_Tablet.webp",
   "/images/Hero_Mobile.webp",
-  "/images/Hero_Desktop.jpg",
-  "/images/Hero_Tablet.jpg",
-  "/images/Hero_Mobile.jpg",
   "/images/vr1.jpg",
   "/images/vr2.jpg",
   "/images/vr3.jpg",
@@ -54,28 +50,22 @@ self.addEventListener("activate", event => {
   );
 });
 
-// Fetch event
+// Fetch event with network-first strategy for better performance
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request).then(response => {
-        // Don't cache non-successful responses
+    fetch(event.request)
+      .then(response => {
         if (!response || response.status !== 200 || response.type !== "basic") {
           return response;
         }
-
-        // Clone the response
         const responseToCache = response.clone();
-
         caches.open(CACHE_NAME).then(cache => {
           cache.put(event.request, responseToCache);
         });
-
         return response;
-      });
-    })
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });
